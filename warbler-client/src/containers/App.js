@@ -4,6 +4,7 @@ import { configureStore } from "../store/index";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Navbar from "./Navbar";
+import Main from "./Main";
 
 const store = configureStore();
 
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <div className="onboarding" >
           <Navbar />
+          <Main />
         </div>
       </Router>
     </Provider>
