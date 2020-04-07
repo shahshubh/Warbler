@@ -18,7 +18,7 @@ export default class AuthForm extends Component {
             [e.target.name]: e.target.value
         });
     };
-
+    
     handleSubmit(e){
         e.preventDefault();
         const authType = this.props.signUp ? "signup" : "signin";
@@ -29,13 +29,20 @@ export default class AuthForm extends Component {
 
     render(){
         const {email, username, password, profileImageUrl} = this.state;
-        const { heading, buttonText, signUp } = this.props;
+        const { heading, buttonText, signUp, errors, history, removeError } = this.props;
+        console.log(history);
+        history.listen(() => {
+            removeError();
+        });
         return (
             <div>
                 <div className="row justify-content-md-center text-center">
                     <div className="col-md-6">
                         <form onSubmit={this.handleSubmit}>
                             <h2>{heading}</h2>
+                            { errors.message && (
+                                <div className="alert alert-danger">{errors.message}</div>
+                            )}
                             <label htmlFor="email">E-mail:</label>
                             <input 
                                 className="form-control" 
