@@ -8,11 +8,11 @@ import AuthForm from "../components/AuthForm";
 import { removeError } from "../store/actions/errors";
 
 const Main = props => {
-    const { authUser, errors } = props;
+    const { authUser, errors, removeError, currentUser} = props;
     return(
         <div className="container">
             <Switch>
-                <Route exact path="/" render={ props => <Homepage {...props} /> } />
+                <Route exact path="/" render={ props => <Homepage currentUser={currentUser} {...props} /> } />
                 <Route 
                     exact 
                     path="/signin" 
