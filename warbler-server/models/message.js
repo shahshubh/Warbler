@@ -28,8 +28,6 @@ messageSchema.pre("remove", async function(next){
         await user.save();  
         //return next
         return next();
-
-
     } catch (error) {
         return next(error); 
     }

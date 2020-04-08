@@ -32,8 +32,8 @@ exports.getMessage = async function(req,res,next){
 //DELETE - /api/users/:id/messages/:message_id
 exports.deleteMessage = async function(req,res,next){
     try {	
-        let foundMessage = await db.Message.findById(req.params.message_id);	
-        await foundMessage.remove();	
+        let foundMessage = await db.Message.findByIdAndRemove(req.params.message_id);
+        //await foundMessage.remove();
         return res.status(200).json(foundMessage);	
     } catch (error) {	
         return next(error);	
