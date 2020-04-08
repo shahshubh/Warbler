@@ -32,7 +32,7 @@ class MessageForm extends Component {
                     value={this.state.message}
                     onChange={e => this.setState({ message: e.target.value })}
                 />
-                <button type="submit" className="btn btn-success pull-right">
+                <button style={{ marginTop: "15px" }} type="submit" className="btn btn-success pull-right">
                     Add Message
                 </button>
             </form>

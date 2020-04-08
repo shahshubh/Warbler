@@ -10,6 +10,7 @@ import withAuth from "../hocs/withAuth";
 import MessageForm from "../containers/MessageForm"; 
 
 const Main = props => {
+    debugger;
     const { authUser, errors, removeError, currentUser} = props;
     return(
         <div className="container">
@@ -20,7 +21,14 @@ const Main = props => {
                     path="/signin" 
                     render={props => {
                         return (
-                            <AuthForm removeError={removeError} errors={errors} onAuth={authUser} buttonText="Log In" heading="Welcome Back." {...props} />
+                            <AuthForm 
+                                removeError={removeError} 
+                                errors={errors}
+                                onAuth={authUser} 
+                                buttonText="Log In" 
+                                heading="Welcome Back !" 
+                                {...props} 
+                            />
                         );
                     }} 
                 />
@@ -29,7 +37,15 @@ const Main = props => {
                     path="/signup" 
                     render={props => {
                         return (
-                            <AuthForm signUp removeError={removeError} errors={errors} onAuth={authUser} buttonText="SignUp" heading="Join Us today." {...props} />
+                            <AuthForm 
+                                signUp 
+                                removeError={removeError}
+                                errors={errors} 
+                                onAuth={authUser} 
+                                buttonText="SignUp" 
+                                heading="Join Us today !" 
+                                {...props} 
+                            />
                         );
                     }} 
                 />
@@ -43,6 +59,7 @@ const Main = props => {
 };
 
 function mapStateToProps(state){
+    debugger;
     return {
         currentUser: state.currentUser,
         errors: state.errors

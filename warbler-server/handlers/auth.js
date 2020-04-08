@@ -47,19 +47,19 @@ exports.signup = async function(req, res, next){
     try {
         let user = await db.User.create(req.body);
         //taking and destructuring data from user var, so its easy to use is ahead i.e. while creating jwt token and passing data into it.
-        let { id, username, profileImgUrl } = user;
+        let { id, username, profileImageUrl } = user;
         let token = jwt.sign(
             {
                 id,
                 username,
-                profileImgUrl
+                profileImageUrl
             },
             process.env.SECRET_KEY 
         );
         return res.status(200).json({
             id,
             username,
-            profileImgUrl,
+            profileImageUrl,
             token
         });
     } catch (err) {

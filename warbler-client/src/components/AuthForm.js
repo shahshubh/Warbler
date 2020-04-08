@@ -1,10 +1,9 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-export default class AuthForm extends Component {
+class AuthForm extends Component {
     constructor(props){
         super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             email: "",
             username: "",
@@ -13,13 +12,14 @@ export default class AuthForm extends Component {
         };
     }
 
-    handleChange(e){
+    handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
         });
     };
     
-    handleSubmit(e){
+    handleSubmit = e => {
+        debugger;
         e.preventDefault();
         const authType = this.props.signUp ? "signup" : "signin";
         this.props
@@ -89,7 +89,7 @@ export default class AuthForm extends Component {
 
                                 </div>
                             )}
-                            <button type="submit" className="btn btn-primary btn-block btn-lg">
+                            <button style={{ marginTop: "15px" }} type="submit" className="btn btn-primary btn-block btn-lg">
                                 {buttonText}
                             </button>
                         </form>
@@ -99,3 +99,15 @@ export default class AuthForm extends Component {
         );
     }
 }
+
+AuthForm.propTypes = {
+    buttonText: PropTypes.string,
+    errors: PropTypes.object,
+    heading: PropTypes.string,
+    history: PropTypes.object,
+    onAuth: PropTypes.func,
+    signIn: PropTypes.bool,
+    removeError: PropTypes.func
+};
+
+export default AuthForm;

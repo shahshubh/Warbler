@@ -22,10 +22,12 @@ export function logout(){
 }
 
 export function authUser(type, userData){
+    debugger;
     return dispatch => {
         return new Promise((resolve, reject) => {
             return apiCall("post", `/api/auth/${type}`, userData)
                 .then(({token, ...user}) => {
+                    debugger;
                     localStorage.setItem("jwtToken", token);
                     setAuthorizationToken(token);
                     dispatch(setCurrentUser(user));
