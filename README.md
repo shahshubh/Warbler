@@ -11,10 +11,14 @@
           
           MONGODB_URI=mongodb+srv://warbler:warbler@cluster0-9mgw3.mongodb.net/test?retryWrites=true&w=majority
           
- Step 3: run command `npm start` while inside warbler-server folder.
+ Step 3: run command `npm install` to install all the dependencies of package.json. Ensure you have node locally insatlled.
  
- Step 4: Backend Server starts running at port 8081.
+ Step 4: run command `npm start` while inside warbler-server folder.
  
- Step 5: Similarly cd into warbler-client folder and run command `npm start`
+ Step 5: Backend Server starts running at port 8081.
+  
+ Step 6: Similarly cd into warbler-client folder.
  
- Step 6: Go to browser and visit url `localhost:3000`.
+ Step 7: Again run command `npm install` to install all dependencies.
+ 
+ Step 8: then run command `npm start` and Go to browser and visit url `http://localhost:3000`.
