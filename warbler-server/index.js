@@ -12,7 +12,6 @@ const { loginRequired, ensureCorrectUser } = require("./middleware/auth")
 const db = require("./models");
 
 const PORT = process.env.PORT || 8081;
-console.log(process.env.MONGODB_URI);
 app.use(cors());
 app.use(bodyParser.json());
 
